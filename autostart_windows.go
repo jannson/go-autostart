@@ -34,8 +34,8 @@ func (a *App) IsEnabled() bool {
 }
 
 func (a *App) Enable() error {
-	path := a.Exec[0]
-	args := strings.Join(a.Exec[1:], " ")
+	path := "\"" + a.Exec[0] + "\""
+	args := "\"" + strings.Join(a.Exec[1:], " ") + "\""
 
 	if err := os.MkdirAll(startupDir, 0777); err != nil {
 		return err
